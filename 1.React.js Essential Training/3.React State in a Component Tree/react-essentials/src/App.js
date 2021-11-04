@@ -1,18 +1,21 @@
 import './App.css';
-import React from "react";
+import React, { useState } from "react";
 
-function SecretComponent() {
-  return <h1> Secret information for authorised user only</h1>;
-}
+function App() {
+  const [emotion, setEmotion] = useState("happy");
+  console.log(emotion);
 
-function RegularComponent() {
-  return <h1>Everyone can see this component</h1>;
-}
-
-function App(authorized) {
   return (
     <>
-    {authorized ? <SecretComponent /> : <RegularComponent />}
+    <h1> Current emotion is {emotion} </h1>
+
+    <button onClick={() => setEmotion("Frustrated")}> 
+      Frustrate
+    </button>
+    
+    <button onClick={() => setEmotion("Enthusiastic")}> 
+      Enthuse
+    </button>
     </>
   )
 }
