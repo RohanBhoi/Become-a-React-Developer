@@ -9,18 +9,21 @@ function App({ login }) {
 
   useEffect(() => {
     fetch(`https://api.github.com/users/${login}`)
-    .then(response => response.json())
-    .then(setData);
+     .then((response) => response.json())
+     .then(setData);
   }, []);
 
   if(data) {
-    return <div> {JSON.stringify(data)} </div>
+    return (
+      <div> 
+        <h1> {data.name} </h1>
+        <p> {data.location} </p>
+      </div>
+    );
   }
-  return (
-    <div>
-      no user available
-    </div>
-  )
+
+  return <div> no user available </div>;
+  
 }
 
 export default App;
